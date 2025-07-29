@@ -24,6 +24,12 @@ A Python web scraper for Vietnamese news websites that extracts article content 
 - VietnamNet (`vietnamnet.vn`)
 - Lao Động (`laodong.vn`)
 - Dan Tri (`dantri.com.vn`)
+- 24h (`24h.com.vn`)
+- Báo An Giang (`baoangiang.com.vn`)
+- vietgiaitri (`vietgiaitri.vn`)
+- Web Tre Tho (`webtretho.com`)
+- Tiin (`tiin.vn`)
+- Tingia (`tingia.gov.vn`)
 
 ## Installation
 
@@ -57,6 +63,9 @@ sc = Scrappers(paragraphs=3)
 # Random paragraphs (3 consecutive random paragraphs)
 sc = Scrappers(paragraphs=3, take_random=True)
 
+# 100 consecutive words starting from random index
+sc = Scrappers(word_limit=100, take_random=True)  
+
 # Word limit takes precedence over paragraphs
 sc = Scrappers(word_limit=150, paragraphs=5)  # Only word_limit applies
 ```
@@ -85,13 +94,14 @@ Each scraped article produces a JSON file with the following structure:
     "date_published": "2025-07-11T16:26:06+07:00",
     "date_modified": "2025-07-11T22:44:48+07:00",
     "language": "vi-VN",
-    "source": "vnexpress",
+    "source": "vnexpress.net",
     "title": "Article Title",
     "description": "Article description/summary",
     "paragraphs": "Main article content...",
     "url": "https://vnexpress.net/example.html",
     "image": "https://example.com/image.jpg",
-    "label": "..."
+    "label": "...",
+    "type" : "article"
 }
 ```
 
